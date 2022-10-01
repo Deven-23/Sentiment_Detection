@@ -48,11 +48,11 @@ model = Sequential()
 
 model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
 model.add(Activation('elu'))
-
-
-
-
-
+model.add(BatchNormalization())
+model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
+model.add(Activation('elu'))
+model.add(BatchNormalization())
+model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Dropout(0.2))
 
 # Block-2 
